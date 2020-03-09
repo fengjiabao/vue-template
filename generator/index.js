@@ -1,10 +1,4 @@
 module.exports = (api, options, rootOptions) => {
-  // 删除 vue-cli3 默认目录
-  api.render(files => {
-    Object.keys(files)
-      .filter(path => path.startsWith('src/') || path.startsWith('public/'))
-      .forEach(path => delete files[path]);
-  });
   // 命令
   api.extendPackage({
     scripts: {
@@ -40,6 +34,12 @@ module.exports = (api, options, rootOptions) => {
       "stylus-loader": "^3.0.2",
       "vue-template-compiler": "^2.6.11"
     }
+  });
+  // 删除 vue-cli3 默认目录
+  api.render(files => {
+    Object.keys(files)
+      .filter(path => path.startsWith('src/'))
+      .forEach(path => delete files[path]);
   });
   // 公共基础目录和文件
   api.render('../template');

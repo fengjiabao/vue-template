@@ -38,7 +38,6 @@ export default {
 <%_ if (options.ui === 'element-ui') { _%>
 .el-container:first-child
   height 100vh
-}
 .el-header, .el-footer
   background-color #B3C0D1
   color #333

@@ -55,4 +55,16 @@ export default {
   text-align center
   line-height 160px
 <%_ } _%>
+<%_ if (options.ui === 'iview') { _%>
+.home
+  height 100vh
+  color #ffffff
+.content
+  flex-direction row
+.ivu-layout-header
+  background-color #2d8cf0
+.ivu-layout-footer
+  background-color #808695
+  color #ffffff
+<%_ } _%>
 </style>

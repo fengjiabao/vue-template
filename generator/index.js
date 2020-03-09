@@ -1,6 +1,10 @@
 module.exports = (api, options, rootOptions) => {
-  console.log(api);
-  console.log(options);
+  // 删除 vue-cli3 默认目录
+  api.render(files => {
+    Object.keys(files)
+      .filter(path => path.startsWith('src/') || path.startsWith('public/'))
+      .forEach(path => delete files[path]);
+  });
   // 命令
   api.extendPackage({
     scripts: {

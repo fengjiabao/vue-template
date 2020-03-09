@@ -12,11 +12,11 @@
   </el-container>
   <%_ } _%>
   <%_ if (options.ui === 'iview') { _%>
-  <Layout>
+  <Layout class="home">
     <Header>Header</Header>
-    <Layout class="">
+    <Layout class="content">
       <Sider hide-trigger>Sider</Sider>
-      <Layout class="main">
+      <Layout>
         <Content>Content</Content>
         <Footer>Footer</Footer>
       </Layout>

@@ -23,6 +23,9 @@
     </Layout>
   </Layout>
   <%_ } _%>
+  <%_ if (options.ui === 'none') { _%>
+  <h1>首页</h1>
+  <%_ } _%>
 </template>
 
 <script>

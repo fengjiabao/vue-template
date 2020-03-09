@@ -10,6 +10,12 @@ module.exports = {
       externals: {
         Cookies: 'Cookies', // 使用JsCookie插件
         moment: 'moment', // 使用moment插件
+        <%_ if (options.ui === 'element-ui') { _%>
+        ElementUI: 'ELEMENT', // 使用Emement-ui
+        <%_ } _%>
+        <%_ if (options.ui === 'iview') { _%>
+        iView: 'iview', // 使用iViewUI
+        <%_ } _%>
       },
       optimization: {
         minimizer: [

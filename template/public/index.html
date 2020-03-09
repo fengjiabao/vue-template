@@ -4,17 +4,31 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="icon" href="/favicon.ico">
+    <title><%= rootOptions.projectName %></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+    <%_ if (options.ui === 'element-ui') { _%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.13.0/lib/theme-chalk/index.min.css">
+    <%_ } _%>
+    <%_ if (options.ui === 'iview') { _%>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/view-design@4.1.3/dist/styles/iview.min.css">
+    <%_ } _%>
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong>We're sorry but <%= rootOptions.projectName %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+    <%_ if (options.ui === 'element-ui') { _%>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/element-ui@2.13.0/lib/index.min.js"></script>
+    <%_ } _%>
+    <%_ if (options.ui === 'iview') { _%>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdn.jsdelivr.net/npm/view-design@4.1.3/dist/iview.min.js"></script>
+    <%_ } _%>
     <!-- built files will be auto injected -->
   </body>
 </html>

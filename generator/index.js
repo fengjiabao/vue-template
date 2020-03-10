@@ -40,13 +40,8 @@ module.exports = (api, options, rootOptions) => {
     console.log('<---------------------------------- S ------------------------------->')
     console.log(Object.keys(files))
     Object.keys(files).forEach(path => delete files[path]);
-  });
-  // 公共基础目录和文件
-  api.render(files => {
     console.log('<----------------------------------  ------------------------------->')
     console.log(files)
-    console.log('<----------------------------------  ------------------------------->')
-    console.log(Object.keys(files))
     console.log('<---------------------------------- E ------------------------------->')
   });
   api.render('../template');

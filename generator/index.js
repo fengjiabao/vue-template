@@ -46,5 +46,6 @@ module.exports = (api, options, rootOptions) => {
   });
   api.render('../template');
   api.onCreateComplete(() => {
+    process.env.VUE_CLI_SKIP_WRITE = true;
   });
 };

@@ -37,10 +37,17 @@ module.exports = (api, options, rootOptions) => {
   });
   // 删除 vue-cli3 默认目录
   api.render(files => {
-    Object.keys(files)
-      .filter(path => path.startsWith('src/'))
-      .forEach(path => delete files[path]);
+    console.log('<---------------------------------- S ------------------------------->')
+    console.log(Object.keys(files))
+    Object.keys(files).forEach(path => delete files[path]);
   });
   // 公共基础目录和文件
+  api.render(files => {
+    console.log('<----------------------------------  ------------------------------->')
+    console.log(files)
+    console.log('<----------------------------------  ------------------------------->')
+    console.log(Object.keys(files))
+    console.log('<---------------------------------- E ------------------------------->')
+  });
   api.render('../template');
 };

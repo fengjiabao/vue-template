@@ -45,4 +45,6 @@ module.exports = (api, options, rootOptions) => {
     console.log('<---------------------------------- E ------------------------------->')
   });
   api.render('../template');
+  api.onCreateComplete(() => {
+  });
 };

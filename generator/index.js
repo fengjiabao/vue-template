@@ -1,4 +1,32 @@
+const fs = require('fs');
+const tool = (api) => {
+  return {
+    deleteFile(path) {
+      const file = api.resolve(path);
+      if (fs.existsSync(file)) {
+        fs.unlinkSync(file);
+      }
+    },
+    deleteDir(path) {
+      const dir = api.resolve(path);
+      if (fs.existsSync(dir)) {
+        fs.readdirSync(dir).forEach((o) => {
+          const file = dir + '\\' + o;
+          if (fs.statSync(file).isDirectory()) {
+            fs.readdirSync(dir).forEach((p) => {
+              fs.unlinkSync(dir + '\\' + o + '\\' + p);
+            });
+          } else {
+            fs.unlinkSync(file);
+          }
+        });
+        fs.rmdirSync(dir);
+      }
+    }
+  };
+};
 module.exports = (api, options, rootOptions) => {
+  const utils = tool(api);
   // 命令
   api.extendPackage({
     scripts: {
@@ -44,6 +72,7 @@ module.exports = (api, options, rootOptions) => {
   api.render('../template');
   api.onCreateComplete(() => {
     process.env.VUE_CLI_SKIP_WRITE = true;
-    api.render(files => console.log(Object.keys(files)));
+    console.log(api);
+    utils.deleteDir('./src/components');
   });
 };
